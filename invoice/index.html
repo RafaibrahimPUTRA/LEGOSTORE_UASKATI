@@ -1,0 +1,83 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Struk Pembelian</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .invoice-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #e60012;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #e60012;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #b0000d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invoice-box">
+    <h2>Struk Pembelian</h2>
+    <p><strong>Nama:</strong> <span id="nama"></span></p>
+    <p><strong>Alamat:</strong> <span id="alamat"></span></p>
+    <p><strong>Produk:</strong> <span id="produk"></span></p>
+    <p><strong>Jumlah:</strong> <span id="jumlah"></span></p>
+    <p><strong>Total Harga:</strong> Rp<span id="total"></span></p>
+    <p><strong>Pembayaran:</strong> <span id="pembayaran"></span></p>
+    <p><strong>Status:</strong> Berhasil</p>
+
+    <div class="btn-group">
+      <button class="btn" onclick="window.print()">Cetak</button>
+      <a href="../transaksi/index.html" class="btn">Pesan Lagi</a>
+    </div>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("transaksi"));
+    if (data) {
+      document.getElementById("nama").textContent = data.nama;
+      document.getElementById("alamat").textContent = data.alamat;
+      document.getElementById("produk").textContent = data.produk;
+      document.getElementById("jumlah").textContent = data.jumlah;
+      document.getElementById("total").textContent = parseInt(data.total).toLocaleString("id-ID");
+      document.getElementById("pembayaran").textContent = data.pembayaran;
+    } else {
+      document.querySelector(".invoice-box").innerHTML = "<p>Data tidak ditemukan. Silakan lakukan transaksi terlebih dahulu.</p>";
+    }
+  </script>
+
+</body>
+</html>

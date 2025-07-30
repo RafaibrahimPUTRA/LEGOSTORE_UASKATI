@@ -1,0 +1,147 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Transaksi LEGO F1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      color: #1a1a1a;
+    }
+
+    .header {
+      background-color: #e60012;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .navbar {
+      background-color: #1a1a1a;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #e60012;
+    }
+
+    .main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .main h2 {
+      text-align: center;
+      color: #e60012;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #e60012;
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #b0000d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">FORM TRANSAKSI</div>
+
+  <div class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Transaksi</a>
+    <a href="../invoice/index.html">Struk</a>
+    <a href="../tentang/index.html">Tentang Kami</a>
+    <a href="../kontak/index.html">Kontak Kami</a>
+  </div>
+
+  <div class="main">
+    <h2>Isi Data Pembelian</h2>
+    <form id="formTransaksi">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      <textarea id="alamat" placeholder="Alamat Pengiriman" required></textarea>
+
+      <select id="produk" required>
+        <option value="">Pilih Produk</option>
+        <option value="FI FERRARI">FI FERRARI - Rp350.000</option>
+        <option value="F1 MCLAREN">F1 MCLAREN - Rp350.000</option>
+        <option value="WILLIAM FW14B">WILLIAM FW14B - Rp350.000</option>
+        <option value="F1 RED BULL">F1 RED BULL - Rp350.000</option>
+      </select>
+
+      <input type="number" id="jumlah" min="1" placeholder="Jumlah" required>
+
+      <select id="pembayaran" required>
+        <option value="">Metode Pembayaran</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+        <option value="COD">Bayar di Tempat (COD)</option>
+        <option value="E-Wallet">E-Wallet (OVO, GoPay, DANA)</option>
+      </select>
+
+      <button type="submit">KIRIM</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formTransaksi").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const hargaSatuan = 350000;
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const produk = document.getElementById("produk").value;
+      const jumlah = parseInt(document.getElementById("jumlah").value);
+      const pembayaran = document.getElementById("pembayaran").value;
+      const total = hargaSatuan * jumlah;
+
+      const dataTransaksi = {
+        nama,
+        alamat,
+        produk,
+        jumlah,
+        pembayaran,
+        total
+      };
+
+      localStorage.setItem("transaksi", JSON.stringify(dataTransaksi));
+      window.location.href = "../invoice/index.html";
+    });
+  </script>
+
+</body>
+</html>

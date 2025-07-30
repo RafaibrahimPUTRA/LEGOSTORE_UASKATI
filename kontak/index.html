@@ -1,0 +1,110 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontak Kami</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background: #e60012;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .navbar {
+      background-color: #1a1a1a;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #e60012;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text {
+      flex: 1 1 300px;
+    }
+
+    .text h2 {
+      color: #e60012;
+    }
+
+    .text p {
+      margin: 10px 0;
+    }
+
+    .photo {
+      flex: 1 1 200px;
+      text-align: center;
+    }
+
+    .photo img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    @media screen and (max-width: 600px) {
+      .content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">KONTAK KAMI</div>
+
+  <div class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../transaksi/index.html">Transaksi</a>
+    <a href="../invoice/index.html">Struk</a>
+    <a href="../tentang/index.html">Tentang Kami</a>
+    <a href="index.html">Kontak Kami</a>
+  </div>
+
+  <div class="content">
+    <div class="text">
+      <h2>Hubungi Kami</h2>
+      <p><strong>Email:</strong> legof1store@example.com</p>
+      <p><strong>WhatsApp:</strong> +62 878-7860-9499</p>
+      <p><strong>Instagram:</strong> @legof1.id</p>
+    </div>
+    <div class="photo">
+      <img src="./gambar1.jpg" alt="Foto Tim LEGO Store">
+      <p><em>Founder: Rafa Ibrahim</em></p>
+    </div>
+  </div>
+
+</body>
+</html>
